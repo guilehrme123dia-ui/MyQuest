@@ -23,6 +23,14 @@ header {
     color: white;
 }
 
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .cabecalho h1 {
     font-size: 28px;
 }
@@ -32,7 +40,6 @@ header {
 }
 
 #btnTema {
-    margin-top: 15px;
     background: white;
     color: #173f83;
     border: 1px solid #ccd5e2;
@@ -109,8 +116,9 @@ select {
     border: 1px solid #ccd5e2;
     border-radius: 7px;
     font-size: 15px;
-    font-family: Arial, sans-serif;
+    font-family: inherit;
     background: white;
+    color: inherit;
 }
 
 input:focus,
@@ -149,6 +157,11 @@ button:focus-visible {
     outline-offset: 3px;
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
 .btn-principal {
     background: #2467d4;
     color: white;
@@ -157,11 +170,58 @@ button:focus-visible {
 .btn-cancelar {
     background: #e5e9ef;
     color: #344054;
-    margin-left: 8px;
+}
+
+.botoes-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 [hidden] {
     display: none !important;
+}
+
+.opcao-repetir {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.opcao-repetir input {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    flex-shrink: 0;
+    accent-color: #2467d4;
+}
+
+.campo small,
+.explicacao {
+    color: #59667a;
+}
+
+.campo small {
+    margin-top: 5px;
+}
+
+.explicacao {
+    margin-bottom: 18px;
+}
+
+#horarioNotificacao {
+    max-width: 220px;
+}
+
+#statusNotificacao {
+    margin-top: 12px;
+    color: #59667a;
+}
+
+#btnNotificacao[aria-pressed="true"] {
+    background: #198754;
+    color: white;
 }
 
 .filtros {
@@ -181,7 +241,6 @@ button:focus-visible {
 
 .tarefa-topo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
@@ -233,6 +292,11 @@ button:focus-visible {
     color: white;
 }
 
+.recorrente {
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
 .acoes {
     display: flex;
     gap: 10px;
@@ -268,6 +332,7 @@ footer {
 }
 
 /* Tema escuro */
+
 body.tema-escuro {
     background: #111827;
     color: #e5e7eb;
@@ -291,7 +356,10 @@ body.tema-escuro {
 }
 
 .tema-escuro .card h3,
-.tema-escuro .tarefa p {
+.tema-escuro .tarefa p,
+.tema-escuro .campo small,
+.tema-escuro .explicacao,
+.tema-escuro #statusNotificacao {
     color: #cbd5e1;
 }
 
@@ -330,7 +398,8 @@ body.tema-escuro {
     color: #a9b7ca;
 }
 
-/* Adaptação para tablets */
+/* Tablets */
+
 @media (max-width: 800px) {
     .resumo {
         grid-template-columns: repeat(2, 1fr);
@@ -341,7 +410,8 @@ body.tema-escuro {
     }
 }
 
-/* Adaptação para celulares */
+/* Celulares */
+
 @media (max-width: 520px) {
     .resumo {
         grid-template-columns: 1fr;
@@ -364,7 +434,7 @@ body.tema-escuro {
         width: 100%;
     }
 
-    .btn-cancelar {
-        margin: 10px 0 0;
+    .botoes-formulario {
+        flex-direction: column;
     }
 }
