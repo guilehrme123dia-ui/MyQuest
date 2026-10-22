@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyQuest - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container cabecalho">
+            <h1>MyQuest</h1>
+            <p>Organize suas tarefas e compromissos</p>
+
+            <button type="button" id="btnTema" aria-pressed="false">
+                🌙 Tema escuro
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="boas-vindas">
+            <h2>Gerenciador de Tarefas</h2>
+            <p>Organize seu dia de maneira simples e prática.</p>
+        </section>
+
+        <section class="resumo" aria-label="Resumo das tarefas">
+            <div class="card">
+                <h3>Total de Tarefas</h3>
+                <strong id="total">0</strong>
+            </div>
+
+            <div class="card">
+                <h3>Pendentes</h3>
+                <strong id="pendentes">0</strong>
+            </div>
+
+            <div class="card">
+                <h3>Em andamento</h3>
+                <strong id="andamento">0</strong>
+            </div>
+
+            <div class="card">
+                <h3>Concluídas</h3>
+                <strong id="concluidas">0</strong>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2 id="tituloFormulario">Cadastrar Nova Tarefa</h2>
+
+            <form id="formTarefa">
+                <div class="campo">
+                    <label for="nome">Nome da tarefa</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite o nome da tarefa"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição</label>
+                    <textarea
+                        id="descricao"
+                        placeholder="Descreva sua tarefa"
+                    ></textarea>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="horario">Horário</label>
+                        <input type="time" id="horario" required>
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="prioridade">Prioridade</label>
+                        <select id="prioridade">
+                            <option value="alta">Alta</option>
+                            <option value="media" selected>Média</option>
+                            <option value="baixa">Baixa</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="pendente">Pendente</option>
+                            <option value="andamento">Em andamento</option>
+                            <option value="concluida">Concluída</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-principal" id="btnSalvar">
+                    Cadastrar Tarefa
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-cancelar"
+                    id="btnCancelar"
+                    hidden
+                >
+                    Cancelar edição
+                </button>
+            </form>
+        </section>
+
+        <section class="painel">
+            <h2>Minhas Tarefas</h2>
+
+            <div class="filtros">
+                <input
+                    type="search"
+                    id="pesquisa"
+                    placeholder="Pesquisar tarefas..."
+                    aria-label="Pesquisar tarefas"
+                >
+
+                <select id="filtroStatus" aria-label="Filtrar por status">
+                    <option value="todos">Todos os status</option>
+                    <option value="pendente">Pendentes</option>
+                    <option value="andamento">Em andamento</option>
+                    <option value="concluida">Concluídas</option>
+                </select>
+
+                <select id="ordenacao" aria-label="Ordenar tarefas">
+                    <option value="data">Ordenar por data</option>
+                    <option value="prioridade">Ordenar por prioridade</option>
+                    <option value="status">Ordenar por status</option>
+                </select>
+            </div>
+
+            <div id="listaTarefas">
+                <p class="vazio">Nenhuma tarefa cadastrada.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>MyQuest - Gerenciador de Tarefas</p>
+    </footer>
+</body>
+</html>
