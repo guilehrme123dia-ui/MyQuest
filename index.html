@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MyQuest - Gerenciador de Tarefas</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -11,8 +13,10 @@
 <body>
     <header>
         <div class="container cabecalho">
-            <h1>MyQuest</h1>
-            <p>Organize suas tarefas e compromissos</p>
+            <div>
+                <h1>MyQuest</h1>
+                <p>Organize suas tarefas e compromissos</p>
+            </div>
 
             <button type="button" id="btnTema" aria-pressed="false">
                 🌙 Tema escuro
@@ -57,7 +61,7 @@
                     <input
                         type="text"
                         id="nome"
-                        placeholder="Digite o nome da tarefa"
+                        placeholder="Ex.: Varrer a casa"
                         required
                     >
                 </div>
@@ -102,19 +106,68 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-principal" id="btnSalvar">
-                    Cadastrar Tarefa
-                </button>
+                <div class="campo">
+                    <label class="opcao-repetir" for="repetirDiariamente">
+                        <input type="checkbox" id="repetirDiariamente">
+                        Repetir todos os dias
+                    </label>
 
-                <button
-                    type="button"
-                    class="btn-cancelar"
-                    id="btnCancelar"
-                    hidden
-                >
-                    Cancelar edição
-                </button>
+                    <small>
+                        Ao concluir, a tarefa será agendada para o próximo
+                        dia, no mesmo horário. Se estiver atrasada, será
+                        agendada para amanhã.
+                    </small>
+                </div>
+
+                <div class="botoes-formulario">
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                        id="btnSalvar"
+                    >
+                        Cadastrar Tarefa
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn-cancelar"
+                        id="btnCancelar"
+                        hidden
+                    >
+                        Cancelar edição
+                    </button>
+                </div>
             </form>
+        </section>
+
+        <section class="painel">
+            <h2>Lembrete diário</h2>
+            <p class="explicacao">
+                Escolha um horário para lembrar de conferir suas tarefas.
+                Mantenha o MyQuest aberto para receber a notificação.
+            </p>
+
+            <div class="campo">
+                <label for="horarioNotificacao">Horário do lembrete</label>
+                <input
+                    type="time"
+                    id="horarioNotificacao"
+                    value="08:00"
+                >
+            </div>
+
+            <button
+                type="button"
+                id="btnNotificacao"
+                class="btn-principal"
+                aria-pressed="false"
+            >
+                Ativar lembrete diário
+            </button>
+
+            <p id="statusNotificacao" role="status">
+                Lembrete desativado.
+            </p>
         </section>
 
         <section class="painel">
